@@ -3,11 +3,22 @@ package stepDefinition;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
+import utilities.Driver;
+
+import java.time.Duration;
 
 public class Contacts_steps {
 
+
+    private WebDriver driver;
+
     @Given("navigate to Website")
     public void navigate_to_website() {
+      driver = Driver.getDriver();
+      driver.manage().window().maximize();
+      driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+      driver.get("https://www.guru99.com/");
 
     }
 
